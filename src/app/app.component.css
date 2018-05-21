@@ -1,0 +1,46 @@
+.ocr_daoHang {
+  height: 72px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  min-width: 960px;
+  margin-bottom: 38px;
+}
+.ocr_daoHang_container {
+  width: 80%;
+  padding: 0 60px;
+  margin: 0 auto;
+}
+.ocr_daoHang_logo {
+  float: left;
+  height: 100%;
+  line-height: 72px;
+  font-size: 30px;
+}
+.ocr_daoHang_logo .logo_red {
+  font-size: 30px;
+  font-weight: bold; /* 字体粗细 */
+  color: rgba(224, 0, 18, 0.77);
+}
+.ocr_daoHang_logo .logo_jianjie {
+  font-size: 13px;
+}
+.ocr_daoHang_list {
+  float: right;
+  height: 100%;
+  line-height: 72px;
+  font-size: 0;
+}
+.ocr_daoHang_list li {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  line-height: 72px;
+  margin-left: 38px;
+}
+.ocr_daoHang_list li a {
+  font-size: 12px;
+  color: #666;
+}
+.ocr_daoHang_list li a:hover {
+  text-decoration: none;
+  color: #333;
+}

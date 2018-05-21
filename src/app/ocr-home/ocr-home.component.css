@@ -1,0 +1,134 @@
+.ocr_home {
+  min-width: 960px;
+  margin: 0 auto;
+}
+.ocr_operations {
+  font-family: PingFang-SC-Regular;
+  height: 38px;
+  margin: 0 10% 18px 10%;
+}
+
+.ocr_operations_left {
+  float: left;
+  font-size: 0;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 2;
+}
+.ocr_operations_right {
+  float: right;
+  height: 20px;
+}
+
+.ocr_operations_left .lang-select {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ocr_operations_left .lang-select:hover .select-text {
+  color: #e02433;
+}
+
+.item-select {
+  width: 231px;
+  padding: 0 18px;
+  height: 36px;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  background: url(../../assets/image/xia_la.png) 95% 50% no-repeat;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.item-select:hover {
+  background: url(../../assets/image/xia_la_hover.png) 95% 50% no-repeat
+}
+.item-select .select-text {
+  overflow: hidden;
+  display: block;
+  margin-right: 28px;
+  height: 36px;
+  line-height: 36px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #2b2b2b;
+  letter-spacing: 0;
+}
+.item-select ul.select {
+  display: none;
+  width: 276px;
+  background: #fff;
+  padding:  18px 10px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+  border-radius: 4px;
+  position: absolute;
+  z-index: 2;
+  top: 49px;
+  left: 0;
+  font-size: 14px;
+}
+.item-select .select li {
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 4px;
+  float: left;
+  cursor: pointer;
+  color: #595959;
+  font-size: 14px;
+  color: #2b2b2b;
+}
+.item-select li a {
+  display: inline-block;
+  height: 100%;
+  padding: 0 8px;
+}
+.item-select li a:hover {
+  background: #ff7b7b;
+  color: #2b2b2b;
+  border-radius: 3px;
+  padding: 0 8px;
+}
+.item-select ul.select .default {
+  width: 100%;
+  margin-top: 0;
+}
+/* 识别按钮 */
+.ocr_operations_button_discern {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 16px;
+  text-align: center;
+  width: 108px;
+  height: 38px;
+  line-height: 38px;
+  background: #e02433;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #fff;
+}
+.ocr_operations_button_discern:hover {
+  background: #bf0917;
+}
+/* 下载按钮 */
+.ocr_operations_button_download {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  text-align: center;
+  width: 107px;
+  height: 36px;
+  line-height: 36px;
+  background: #fff;
+  border: 1px solid #e02433;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #e02433;
+}
+.ocr_operations_button_download:hover {
+  background: #bf0917;
+  border: 1px solid #bf0917;
+  color: #fff;
+}

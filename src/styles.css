@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  background-color: #f9f9f9;
+  min-width: 960px;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: PingFangSC-Semibold,"Microsoft YaHei",Arial,sans-serif,Helvetica,STHeiti;
+  color: #333;
+  letter-spacing: 0;
+  color: #434343;
+  background-color: #fff;
+  min-width: 960px;
+}
+form,h1,h3,h4,h5,input,li,p,ul {
+  margin: 0;
+  padding: 0;
+}
+li,ul {
+  list-style: none;
+}
+img {
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}

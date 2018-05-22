@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { OcrHomeComponent } from './ocr-home/ocr-home.component';
+import { OcrHomeInputComponent } from './ocr-home-input/ocr-home-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OcrHomeComponent
+    OcrHomeComponent,
+    OcrHomeInputComponent
   ],
   imports: [
     BrowserModule

@@ -97,6 +97,7 @@
 }
 /* 识别按钮 */
 .ocr_operations_button_discern {
+  text-decoration: none;
   display: inline-block;
   vertical-align: middle;
   margin-left: 16px;
@@ -114,6 +115,7 @@
 }
 /* 下载按钮 */
 .ocr_operations_button_download {
+  text-decoration: none;
   display: inline-block;
   vertical-align: middle;
   margin-left: 6px;

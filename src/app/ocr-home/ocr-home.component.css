@@ -5,7 +5,7 @@
 .ocr_operations {
   font-family: PingFang-SC-Regular;
   height: 38px;
-  margin: 0 10% 18px 10%;
+  margin: 0 13% 18px 13%;
 }
 
 .ocr_operations_left {
@@ -68,6 +68,9 @@
   top: 49px;
   left: 0;
   font-size: 14px;
+}
+.item-select ul.select:focus {
+  display: block;
 }
 .item-select .select li {
   width: 50%;

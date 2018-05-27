@@ -1,0 +1,24 @@
+.ocr_footer {
+  font-family:PingFangSC-Semibold;
+  border-top:1px solid #e8e8e8;
+  padding:30px;
+  margin:0 auto;
+  font-size:12px;
+  text-align:center;
+  color:#999;
+  min-width: 960px;
+}
+.ocr_footer a {
+  font-size:12px;
+  color:#a4a4a4;
+  text-decoration:none;
+}
+.ocr_footer .c_fnl {
+  color:#e8e8e8;
+  margin:0 10px;
+}
+.ocr_footer .c_fcopyright {
+  font-size:12px;
+  color:#bcbcbc;
+  margin-top:16px;
+}

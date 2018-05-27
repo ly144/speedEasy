@@ -24,12 +24,12 @@
         </ul>
         <input class="select-input" id="language" name="language" type="hidden" value="AUTO">
       </div>
-      <a class="ocr_operations_button_discern" id="transMachine" href="javascript:;">识别</a>
+      <a class="ocr_operations_button_discern" id="transMachine" (click)="ocrHomeInputComponent.uploadFile()">识别</a>
     </div>
     <div class="ocr_operations_right">
       <a class="ocr_operations_button_download clog-js" data-clog="AT_BUTTON_CLICK" data-pos="web.i.top" id="transMan" href="javascript:;">下载</a>
     </div>
   </div>
   <!-- 上传 -->
-  <app-ocr-home-input></app-ocr-home-input>
+  <app-ocr-home-input #ocrHomeInputComponent></app-ocr-home-input>
 </div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Language } from '../language';
-import { LANGUAGES } from '../languages';
+import { Component, OnInit, Input } from '@angular/core';
+import { Language } from '../useCase/language';
+import { LANGUAGES } from '../useCase/languages';
 
 @Component({
   selector: 'app-ocr-home',

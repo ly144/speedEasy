@@ -1,0 +1,27 @@
+<div class="ocr_input">
+  <div class="input_original">
+    <div class="ocr_input_bg">
+      <div id="docUploadCon" class="doc__upload--con">
+        <form id="docUploadForm" method="post" enctype="multipart/form-data">
+          <span>上传文档</span>
+          <input ng2FileSelect [uploader]="uploader" type="file" name="your_file" id="docUploadFile" value="" accept="image/*" multiple class="doc__upload--file" (change)="selectedFileOnChanged($event)" />
+        </form>
+      </div>
+      <textarea id="inputOriginal" class="input_original_area" placeholder="请输入你要翻译的文字或网址"></textarea>
+    </div>
+  </div>
+  <div class="input_target">
+    <div class="ocr_input_bg">
+      <div id="transTarget" class="input_target_text">{{ txt.name }}</div>
+      <textarea id="transTargetArea" class="input_target_text"></textarea>
+    </div>
+  </div>
+</div>
+<!--<label class="preview-label" *ngFor="let img of ocrInputSrcs let i = index">-->
+  <!--<img src="{{img}}" width="100px" height="100px">-->
+  <!--<i class="fa fa-remove uploadimgremove" (click)="remove(i)"></i>-->
+<!--</label>-->
+<!--<label class="preview-label">-->
+  <!--<input type="file" (change)="ocrInputPic($event)">-->
+  <!--<i class="fa fa-2x fa-plus uploadimgicon"></i>-->
+<!--</label>-->

@@ -5,18 +5,27 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { OcrHomeComponent } from './ocr-home/ocr-home.component';
-import { OcrHomeInputComponent } from './ocr-home-input/ocr-home-input.component';
+import { OcrHistoryComponent } from './ocr-history/ocr-history.component';
+import { OcrPersonalComponent } from './ocr-personal/ocr-personal.component';
+import { OcrLoginComponent } from './ocr-login/ocr-login.component';
+import { FormsModule } from '@angular/forms';
+import { OcrRegisterComponent } from './ocr-register/ocr-register.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     OcrHomeComponent,
-    OcrHomeInputComponent
+    OcrHistoryComponent,
+    OcrPersonalComponent,
+    OcrLoginComponent,
+    OcrRegisterComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    FileUploadModule
+    FileUploadModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

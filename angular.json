@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
+              "../node_modules/jquery/dist/jquery.js/jquery.min.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {
@@ -75,8 +78,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"

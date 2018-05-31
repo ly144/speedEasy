@@ -1,0 +1,12 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+/*@import url('https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css')*/
+/*.form-control{*/
+  /*height: 30px;*/
+  /*width: 200px;*/
+/*}*/
+#frmLogin #codeE{/*设置动态生成验证码标签的样式*/
+  font-size: 20px;
+  border: 1px dashed #999999;
+  display: inline-block;
+  padding: 5px;
+}

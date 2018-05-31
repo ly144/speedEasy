@@ -10,6 +10,12 @@ import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 import { OcrHomeComponent } from './ocr-home/ocr-home.component';
+import { OcrHistoryComponent } from './ocr-history/ocr-history.component';
+import { OcrPersonalComponent } from './ocr-personal/ocr-personal.component';
+import { OcrLoginComponent } from './ocr-login/ocr-login.component';
+import { FormsModule } from '@angular/forms';
+import { OcrRegisterComponent } from './ocr-register/ocr-register.component';
+
 import { OcrHomeInputComponent } from './ocr-home-input/ocr-home-input.component';
 import { OcrFooterComponent } from './ocr-footer/ocr-footer.component';
 import { OcrCkeditorComponent } from './ocr-ckeditor/ocr-ckeditor.component';
@@ -20,6 +26,10 @@ import { OcrInputService } from './service/ocr-input.service';
   declarations: [
     AppComponent,
     OcrHomeComponent,
+    OcrHistoryComponent,
+    OcrPersonalComponent,
+    OcrLoginComponent,
+    OcrRegisterComponent,
     OcrHomeInputComponent,
     OcrFooterComponent,
     OcrCkeditorComponent,
@@ -30,6 +40,7 @@ import { OcrInputService } from './service/ocr-input.service';
     CommonModule,
     FormsModule,
     FileUploadModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     CKEditorModule,

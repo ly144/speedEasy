@@ -1,28 +1,28 @@
 <div class="container">
   <h3>图片文字识别注册</h3>
   <br>
-  <form>
+  <form (ngSubmit)="onSubmit()" #ocrRegister="ngForm">
     <div class="form-group">
-      <label for="name">用户名</label>
-      <input type="text" class="form-control" id="name" required>
+      <label for="Cno">邮箱</label>
+      <input type="text" name="Cno" class="form-control" id="Cno" [(ngModel)]="newUser.cno" required>
     </div>
 
     <div class="form-group">
-      <label for="password">密码</label>
-      <input type="password" class="form-control" id="password">
+      <label for="Cpasd">密码</label>
+      <input type="password" class="form-control" name="Cpasd" id="Cpasd" [(ngModel)]="newUser.cpasd">
     </div>
 
     <div class="form-group">
       <label for="repassword">确认密码</label>
-      <input type="password" class="form-control" id="repassword">
+      <input type="password" class="form-control" name="repassword" id="repassword" [(ngModel)]="repassword" required>
     </div>
 
     <div class="form-group">
-      <label for="email">邮箱</label>
-      <input type="text" class="form-control" id="email" required>
+      <label for="Cname">昵称</label>
+      <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="newUser.cname" required>
     </div>
 
-    <button type="submit" class="btn btn-success">REGISTER</button>
+    <button type="submit" class="btn btn-success" [disabled]="!ocrRegister.form.valid">REGISTER</button>
 
   </form>
 </div>

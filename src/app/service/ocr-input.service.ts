@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/internal/operators';
-import { Txt } from '../useCase/Txt';
+import { Result } from '../models/result';
+import { UPLOADURL } from '../models/uploadUrl';
+import { User } from '../models/user';
+import { Response } from '../models/response';
 
 const httpOptions = {
   headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
     })
 };
 
@@ -15,9 +18,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OcrInputService {
-
-  uploadUrl: String = 'http://10.0.0.20:8080';
-  // uploadUrl: String = 'http://10.0.0.16:8080';
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -30,10 +30,54 @@ export class OcrInputService {
     private http: HttpClient
   ) { }
 
-  getTxt(): Observable<Txt> {
-    return this.http.get<Txt>(this.uploadUrl + '/test')
+  /**
+   * 登录
+   * @param model
+   * @returns {Observable<boolean>}
+   */
+  loginVerify(model): Observable<Response> {
+    return this.http.post<Response>(UPLOADURL + '/user/login', JSON.stringify(model), httpOptions)
       .pipe(
-        catchError(this.handleError('getTxt'))
+        catchError(this.handleError('loginVerify'))
       );
   }
+
+  /**
+   * 注册
+   * @param {User} user
+   * @returns {Observable<User>}
+   */
+  sendUser(user: User): Observable<User> {
+    console.log(user);
+    return this.http.post<User>(UPLOADURL + '/user/reg', JSON.stringify(user), httpOptions)
+      .pipe(
+        catchError(this.handleError('sendUser'))
+      );
+  }
+
+  readAsDataUrl(file) {
+    const that = this;
+    return new Promise(function(resolve, reject) {
+      const reader = that.getReader(resolve, reject);
+      reader.readAsDataURL(file);
+    });
+  }
+  getReader(resolve, reject) {
+    const reader = new FileReader();
+    reader.onload = this.Onload(reader, resolve);
+    reader.onerror = this.OnError(reader, reject);
+    return reader;
+  }
+  Onload(reader: FileReader, resolve) {
+    return () => {
+      resolve(reader.result);
+    };
+  }
+  OnError(reader: FileReader, reject) {
+    return () => {
+      reject(reader.result);
+    };
+  }
+
+
 }

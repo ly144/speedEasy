@@ -1,18 +1,23 @@
 <div class="ocr_input">
   <div class="input_original">
-    <div class="ocr_input_bg">
+    <div class="ocr_input_bg" ng2FileDrop [ngClass]="{dropping: isDropZoneOver}" (fileOver)="fileOverBase($event)" (onFileDrop)="fileDropOver($event)" [uploader]="uploader">
       <div id="docUploadCon" class="doc__upload--con">
-        <form id="docUploadForm" method="post" enctype="multipart/form-data">
+        <form id="docUploadForm" method="post" enctype="multipart/form-data" #ocrUpload="ngForm">
           <span>上传文档</span>
           <input ng2FileSelect [uploader]="uploader" type="file" name="your_file" id="docUploadFile" value="" accept="image/*" multiple class="doc__upload--file" (change)="selectedFileOnChanged($event)" />
         </form>
       </div>
-      <textarea id="inputOriginal" class="input_original_area" placeholder="请输入你要翻译的文字或网址"></textarea>
+      <textarea *ngIf="!isImage" id="inputOriginal" class="input_original_area" placeholder="{{ value }}" disabled></textarea>
+      <div *ngIf="isImage" class="input_original_area">
+        <label>
+          <img src="{{ images }}" width="100px" height="100px" />
+        </label>
+      </div>
     </div>
   </div>
   <div class="input_target">
     <div class="ocr_input_bg">
-      <div id="transTarget" class="input_target_text">{{ txt.name }}</div>
+      <div id="transTarget" class="input_target_text">{{ txt.ern }}<br />{{ txt.companyName }}</div>
       <textarea id="transTargetArea" class="input_target_text"></textarea>
     </div>
   </div>

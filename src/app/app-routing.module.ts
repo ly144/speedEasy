@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OcrHomeComponent } from './ocr-home/ocr-home.component';
 import { OcrCkeditorComponent } from './ocr-ckeditor/ocr-ckeditor.component';
 import {OcrLoginComponent} from './ocr-login/ocr-login.component';
-import {OcrPersonalComponent} from './ocr-personal/ocr-personal.component';
+// import {OcrPersonalComponent} from './ocr-personal/ocr-personal.component';
 import {OcrRegisterComponent} from './ocr-register/ocr-register.component';
 import {OcrHistoryComponent} from './ocr-history/ocr-history.component';
 
@@ -14,7 +14,7 @@ const ROUTES: Routes = [
   { path: 'login', component: OcrLoginComponent },
   { path: 'register', component: OcrRegisterComponent },
   { path: 'history', component: OcrHistoryComponent },
-  { path: 'personal', component: OcrPersonalComponent }
+  // { path: 'personal', component: OcrPersonalComponent }
 ];
 
 @NgModule({

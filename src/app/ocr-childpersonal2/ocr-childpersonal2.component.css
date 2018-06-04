@@ -1,0 +1,26 @@
+.Set{
+  margin-left: 400px;
+  margin-top: -190px;
+}
+
+.form-control{
+  width:550px;
+  height: 35px;
+}
+
+hr{
+  width: 800px;
+  margin-left: 3px;
+}
+
+label{
+  margin-left: 35px;
+}
+
+input{
+  margin-left: 35px;
+}
+
+button{
+  margin-left: 500px;
+}

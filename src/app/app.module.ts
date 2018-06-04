@@ -17,6 +17,10 @@ import { AppRoutingModule } from './/app-routing.module';
 import { OcrFooterComponent } from './ocr-footer/ocr-footer.component';
 import { OcrInputService } from './service/ocr-input.service';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OcrChildpersonal1Component } from './ocr-childpersonal1/ocr-childpersonal1.component';
+import { OcrChildpersonal2Component } from './ocr-childpersonal2/ocr-childpersonal2.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +30,9 @@ import { OcrInputService } from './service/ocr-input.service';
     OcrLoginComponent,
     OcrRegisterComponent,
     OcrHomeInputComponent,
-    OcrFooterComponent
+    OcrFooterComponent,
+    OcrChildpersonal1Component,
+    OcrChildpersonal2Component
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,8 @@ import { OcrInputService } from './service/ocr-input.service';
     FileUploadModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [
     OcrInputService
@@ -42,4 +49,3 @@ import { OcrInputService } from './service/ocr-input.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-// export class ProjectDetailPageModule { }

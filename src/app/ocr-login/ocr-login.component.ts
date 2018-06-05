@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OcrInputService } from '../service/ocr-input.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+// import {  } from 'jsonwebtoken';
 
 @Component({
   selector: 'app-ocr-login',
@@ -15,29 +16,43 @@ export class OcrLoginComponent implements OnInit {
   onSubmit() {
     console.log(this.model);
     this.ocrInputService.loginVerify(this.model)
-      .subscribe(
-        (res) => {
-          this.setSession(res);
-          this.model.username = '';
-          this.model.password = '';
-          this.verification = '';
-          // this.router.navigate(['/home']);
-          return res as any;
-        }
-      );
+      .subscribe((res) => {
+        console.log(res.rspCode);
+        console.log(res.rspMsg);
+        console.log(res.data);
+        this.setSession(res);
+        this.model.username = '';
+        this.model.password = '';
+        this.verification = '';
+        // this.router.navigate(['/home']);
+        return res as any;
+      });
   }
 
   private setSession(authResult) {
-    if (authResult.status === 0) {
+    console.log(authResult.rspCode);
+    if (authResult.rspCode === '000000') {
       // const expiresAt = moment().add(authResult.expiresIn, 'second');
-      localStorage.setItem('id_token', authResult.id_token);
+      localStorage.setItem('token', authResult.data);
       // localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
       // this.isLogin = true;
       // this.loginSubject.next(true);
+    } else {
+      console.log('else');
     }
   }
 
-  constructor(private ocrInputService: OcrInputService, private router: Router) {
+  logout() {
+    // this.isLogin = false;
+    localStorage.removeItem('token');
+    // localStorage.removeItem('expires_at');
+    // this.loginSubject.next(false);
+  }
+
+  constructor(
+    private ocrInputService: OcrInputService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {

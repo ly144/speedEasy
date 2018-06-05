@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/internal/operators';
 import { Result } from '../models/result';
 import { UPLOADURL } from '../models/uploadUrl';
@@ -9,8 +9,7 @@ import { Response } from '../models/response';
 
 const httpOptions = {
   headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'my-auth-token'
+      'Content-Type': 'application/json'
     })
 };
 
@@ -18,6 +17,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OcrInputService {
+
+  private isLogin = false;
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -28,7 +29,9 @@ export class OcrInputService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    // this.isLogin = localStorage.getItem('id_token') !== undefined;
+  }
 
   /**
    * 登录
@@ -55,29 +58,8 @@ export class OcrInputService {
       );
   }
 
-  readAsDataUrl(file) {
-    const that = this;
-    return new Promise(function(resolve, reject) {
-      const reader = that.getReader(resolve, reject);
-      reader.readAsDataURL(file);
-    });
+  public isLoggedIn() {
+    return this.isLogin;
   }
-  getReader(resolve, reject) {
-    const reader = new FileReader();
-    reader.onload = this.Onload(reader, resolve);
-    reader.onerror = this.OnError(reader, reject);
-    return reader;
-  }
-  Onload(reader: FileReader, resolve) {
-    return () => {
-      resolve(reader.result);
-    };
-  }
-  OnError(reader: FileReader, reject) {
-    return () => {
-      reject(reader.result);
-    };
-  }
-
 
 }

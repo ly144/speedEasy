@@ -1,28 +1,44 @@
-<div class="container">
-  <h3>图片文字识别注册</h3>
-  <br>
-  <form (ngSubmit)="onSubmit()" #ocrRegister="ngForm">
-    <div class="form-group">
-      <label for="Cno">邮箱</label>
-      <input type="text" name="Cno" class="form-control" id="Cno" [(ngModel)]="newUser.cno" required>
-    </div>
+<ng-template #content let-c="close" let-d="dismiss">
 
-    <div class="form-group">
-      <label for="Cpasd">密码</label>
-      <input type="password" class="form-control" name="Cpasd" id="Cpasd" [(ngModel)]="newUser.cpasd">
-    </div>
+  <div class="modal-header">
+    <h3>图片文字识别注册</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-    <div class="form-group">
-      <label for="repassword">确认密码</label>
-      <input type="password" class="form-control" name="repassword" id="repassword" [(ngModel)]="repassword" required>
-    </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()" #ocrRegister="ngForm">
 
-    <div class="form-group">
-      <label for="Cname">昵称</label>
-      <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="newUser.cname" required>
-    </div>
+      <div class="form-group">
+        <label for="Cno">邮箱</label>
+        <input type="text" name="Cno" class="form-control" id="Cno" [(ngModel)]="newUser.cno" required>
+      </div>
 
+      <div class="form-group">
+        <label for="Cpasd">密码</label>
+        <input type="password" class="form-control" name="Cpasd" id="Cpasd" [(ngModel)]="newUser.cpasd">
+      </div>
+
+      <div class="form-group">
+        <label for="repassword">确认密码</label>
+        <input type="password" class="form-control" name="repassword" id="repassword" [(ngModel)]="repassword"
+               required>
+      </div>
+
+      <div class="form-group">
+        <label for="Cname">昵称</label>
+        <input type="text" class="form-control" name="Cname" id="Cname" [(ngModel)]="newUser.cname" required>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
     <button type="submit" class="btn btn-success" [disabled]="!ocrRegister.form.valid">REGISTER</button>
+  </div>
 
-  </form>
-</div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openregister(content)">openregister</button>

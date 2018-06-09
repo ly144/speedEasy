@@ -1,23 +1,41 @@
 <!--个人信息-->
 
-<div  class="tab-pane active container" id="home">
-  <a>个人信息</a>
-  <hr>
+<ng-template #content let-c="close" let-d="dismiss">
 
-  <div class="Set1">
-    用户名：
-    <hr class="hr1">
-
-    职业:
-    <hr class="hr1">
-
-    城市:
-    <hr class="hr1">
-
-    手机：
-    <hr class="hr1">
-
-    个性签名:
-    <hr class="hr1">
+  <!--头部-->
+  <!--<div class="tab-pane active container" id="home">-->
+  <div class="card img-fluid">
+    <!--<a>个人信息</a>-->
+    <!--<hr>-->
+    <!--<div class="head">-->
+      <img class="card-img-top" src="..\..\assets\image\image2.jpg" width="100%" height="200px">
+    <!--</div>-->
+    <button type="button" class="close card-img-overlay" aria-label="Close" (click)="d('Cross click')" style="margin-top: 0px;height: 30px;border-color: white;">
+      <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-</div>
+
+  <!--内容-->
+  <!--<div class="Set1 modal-body">-->
+  <div class="modal-body" >
+    <p>用户名：</p>
+    <!--<hr class="hr1">-->
+
+    <p>邮箱:</p>
+    <!--<hr class="hr1">-->
+
+    <p>职业:</p>
+    <!--<hr class="hr1">-->
+
+    <p>城市:</p>
+    <!--<hr class="hr1">-->
+
+    <p>手机</p>
+    <!--<hr class="hr1">-->
+
+  </div>
+
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openchildpersonal1(content)">个人信息</button>

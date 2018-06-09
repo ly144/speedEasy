@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { OcrInputService } from '../service/ocr-input.service';
-import { Router } from '@angular/router';
-// import {  } from 'jsonwebtoken';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {OcrInputService} from '../service/ocr-input.service';
+import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ocr-login',
   templateUrl: './ocr-login.component.html',
-  styleUrls: ['./ocr-login.component.css']
+  styleUrls: ['./ocr-login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OcrLoginComponent implements OnInit {
 
-  model = { 'username': '', 'password': '' };
+  model = {'username': '', 'password': ''};
   verification = '';
 
   onSubmit() {
@@ -49,12 +50,15 @@ export class OcrLoginComponent implements OnInit {
     // this.loginSubject.next(false);
   }
 
-  constructor(
-    private ocrInputService: OcrInputService,
-    private router: Router
-  ) {
+  constructor(private ocrInputService: OcrInputService,
+              private router: Router,
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
+  }
+
+  openLogin(content) {
+    this.modalService.open(content, {backdropClass: 'light-blue-backdrop', centered: true});
   }
 }

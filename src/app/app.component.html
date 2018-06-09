@@ -6,8 +6,8 @@
     <ul class="ocr_daoHang_list">
       <li><a routerLink="/ocr-personal" routerLinkActive="active">文件预览</a></li>
       <li><a routerLink="/history" routerLinkActive="active">历史记录</a></li>
-      <li class="last"><a class="login-link" routerLink="/login" routerLinkActive="active">登录</a></li>
-      <li><a routerLink="/register" routerLinkActive="active">注册</a></li>
+      <li class="last"><a class="login-link " (click)="openLogin(content)" routerLink="/login" routerLinkActive="active">登录</a></li>
+      <li><a routerLink="/register" routerLinkActive="active" >注册</a></li>
     </ul>
   </div>
 </div>

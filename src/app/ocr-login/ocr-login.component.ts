@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OcrInputService } from '../service/ocr-input.service';
 import { Router } from '@angular/router';
-// import {  } from 'jsonwebtoken';
 
 @Component({
   selector: 'app-ocr-login',

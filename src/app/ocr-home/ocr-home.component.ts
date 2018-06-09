@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Language } from '../models/language';
 import { LANGUAGES } from '../models/languages';
+import { UPLOADURL } from '../models/uploadUrl';
 
 @Component({
   selector: 'app-ocr-home',
@@ -10,9 +11,7 @@ import { LANGUAGES } from '../models/languages';
 export class OcrHomeComponent implements OnInit {
 
   languages = LANGUAGES;
-
   selectedLanguage: Language = this.languages[0];
-
   isDisplay: String = 'none';
 
   onSelect(language: Language): void {

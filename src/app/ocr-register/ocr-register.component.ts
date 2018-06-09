@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from '../models/user';
 import { OcrInputService } from '../service/ocr-input.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ocr-register',
   templateUrl: './ocr-register.component.html',
-  styleUrls: ['./ocr-register.component.css']
+  styleUrls: ['./ocr-register.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class OcrRegisterComponent implements OnInit {
 
@@ -28,9 +30,13 @@ export class OcrRegisterComponent implements OnInit {
     }
   }
 
-  constructor(private ocrInputService: OcrInputService) { }
+  constructor(private ocrInputService: OcrInputService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
+  openregister(content) {
+    this.modalService.open(content, {backdropClass: 'light-blue-backdrop',centered: true });
+  }
 }

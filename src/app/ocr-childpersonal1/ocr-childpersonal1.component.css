@@ -12,24 +12,85 @@
   height: 35px;
 }
 
-hr{
-  width: 800px;
-  margin-left: 3px;
-}
+/*hr{*/
+  /*width: 800px;*/
+  /*margin-left: 3px;*/
+/*}*/
 
-label{
-  margin-left: 35px;
-}
+/*label{*/
+  /*margin-left: 35px;*/
+/*}*/
 
-input{
-  margin-left: 35px;
-}
+/*input{*/
+  /*margin-left: 35px;*/
+/*}*/
 
-button{
-  margin-left: 500px;
-}
+/*button{*/
+  /*margin-left: 500px;*/
+/*}*/
 
 .hr1{
   margin-left: 60px;
   width: 710px;
+}
+
+/*.head{*/
+  /*margin-top: -20px;*/
+  /*margin-left: 170px;*/
+  /*border-style: solid;*/
+  /*border-width: 1px;*/
+  /*border-color: #999999;*/
+  /*height: 130px;*/
+  /*width:130px;*/
+/*}*/
+
+.head{
+  /*margin-left: 30px;*/
+  padding: 0;
+  margin-top: -16px;
+  /*margin-right: -16px;*/
+  margin-left: -16px;
+  margin-bottom: -16px;
+  width: 500px;
+  height: 200px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e3d4ff;
+}
+
+.modal-body{
+  margin-left: 30px;
+}
+
+.modal-xl {
+  max-width: 400px;
+}
+
+.light-blue-backdrop {
+  background-color: black;
+  /*background:none;*/
+}
+
+p{
+  font-size: 12px;
+  color: #999999;
+}
+img{
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+  /*margin: -20px;*/
+}
+
+button.close{
+ margin-left: 270px;
+ margin-top: -175px;
+ border-style: none;
+  /*height: 100px;*/
+  /*width: 16px;*/
+}
+button.close :hover{
+  /*background-color: none;*/
+  border-color: white;
 }

@@ -1,23 +1,37 @@
-<div class="container">
-  <h3>图片文字识别登录</h3>
-  <br>
-  <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
-    <div class="form-group">
-      <label for="username">用户名</label>
-      <input type="text" class="form-control" name="Cname" id="username" [(ngModel)]="model.username" required>
-    </div>
+<ng-template #content let-c="close" let-d="dismiss">
 
-    <div class="form-group">
-      <label for="password">密码</label>
-      <input type="password" class="form-control" name="Cpass" id="password" [(ngModel)]="model.password">
-    </div>
+  <div class="modal-header">
+    <h3 class="modal-title">图片文字识别登录</h3>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-    <div class="form-group">
-      <label for="verification">验证码</label>
-      <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification" required>
-    </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
+      <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" class="form-control" name="Cname" id="username" [(ngModel)]="model.username" required>
+      </div>
 
+      <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" class="form-control" name="Cpass" id="password" [(ngModel)]="model.password">
+      </div>
+
+      <div class="form-group">
+        <label for="verification">验证码</label>
+        <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification"
+               required>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
     <button type="submit" class="btn btn-success" [disabled]="!ocrLogin.form.valid">Submit</button>
+  </div>
 
-  </form>
-</div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openLogin(content)">openLogin</button>

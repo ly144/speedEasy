@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import { catchError } from 'rxjs/internal/operators';
 import { Result } from '../models/result';
 import { UPLOADURL } from '../models/uploadUrl';
@@ -56,6 +56,20 @@ export class OcrInputService {
       .pipe(
         catchError(this.handleError('sendUser'))
       );
+  }
+
+  uploadFiles(formData: FormData) {
+    const token = localStorage.getItem('token');
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers
+      .set('Cache-Control', 'no-cache')
+      .set('Authorization', 'Bearer ' + token);
+    const url = UPLOADURL + '/upload/files';
+    const req = new HttpRequest('POST', url, formData, {
+      reportProgress: true, headers: headers
+    });
+    console.log('上传');
+    return this.http.request(req);
   }
 
   public isLoggedIn() {

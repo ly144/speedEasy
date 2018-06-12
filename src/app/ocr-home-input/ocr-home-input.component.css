@@ -150,27 +150,71 @@
 #transTargetArea:focus {
   border:none
 }
-/*
-.preview-label {
-  width: 100px;
-  height:100px;
-  border:1px dotted #ccc;
-  position: relative;
-  vertical-align: top;
-  display: inline-block
+
+
+
+
+#outer {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 1%;
+  width: 100%;
+  overflow: hidden;
+  zoom: 1;
 }
-.preview-label>input {
+#inside {
+  height: 100%;
+  border-style: dashed;
+  overflow: hidden;
+  zoom: 1;
+}
+#inside-hint {
+  color: #aaa;
+  font-size: 1.6em;
+  padding: 12%;
+  cursor: default;
+}
+#ocrButtonup, #ocrButtonre, #ocrButtondown {
+  width: 95px;
+}
+#imgShow {
+  width: 228px;
+  margin: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 5px 0 #a2958a;
+  padding: 6px;
+  float: left;
+  text-align: center;
+}
+.imgKuang {
+  height: 180px;
+}
+#setImg {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+#imgIntro {
+  height: 40px;
+  display: block;
+  text-align: center;
+  padding: 0px;
+  font-size: 11px;
+  color: #777;
+}
+.doc_inupt_file {
   display: none;
+  width: 9%;
+  height: 100%;
+  margin-bottom: -50px;
+  opacity: 0;
+  padding: 3px;
 }
-.preview-label .uploadimgicon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+
+#template {
+  width: 400px;
+  height: 500px;
 }
-.preview-label .uploadimgremove {
-  position: absolute;
-  top:5px;
-  right:5px;
-}
-*/

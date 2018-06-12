@@ -1,15 +1,23 @@
 <div class="ocr_daoHang">
-  <div class="ocr_daoHang_container">
-    <a routerLink="/home" routerLinkActive="active" class="ocr_daoHang_logo"><span class="logo_red">SPEED</span>EASY
-      <span class="logo_jianjie">免费、即使的多语种在线图片文字识别</span>
-    </a>
-    <ul class="ocr_daoHang_list">
-      <li><a routerLink="/ocr-personal" routerLinkActive="active">文件预览</a></li>
-      <li><a routerLink="/history" routerLinkActive="active">历史记录</a></li>
-      <li class="last"><a class="login-link " (click)="openLogin(content)" routerLink="/login" routerLinkActive="active">登录</a></li>
-      <li><a routerLink="/register" routerLinkActive="active" >注册</a></li>
-    </ul>
+
+  <div class="ocr_daoHang_container container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <a routerLink="/home" routerLinkActive="active" class="ocr_daoHang_logo"><span class="logo_red">SPEED</span>EASY
+        <span class="logo_jianjie">免费、即使的多语种在线图片文字识别</span>
+      </a>
+    </div>
+
+    <div class="col-6">
+      <ul class="ocr_daoHang_list">
+        <li><a routerLink="/ocr-personal" routerLinkActive="active">文件预览</a></li>
+        <li><a routerLink="/history" routerLinkActive="active">历史记录</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">登录</a></li>
+        <li><a routerLink="/register" routerLinkActive="active">注册</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 <router-outlet></router-outlet>
 <app-ocr-footer></app-ocr-footer>

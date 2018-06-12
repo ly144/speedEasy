@@ -21,8 +21,7 @@
 
       <div class="form-group">
         <label for="verification">验证码</label>
-        <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification"
-               required>
+        <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification">
       </div>
     </form>
   </div>
@@ -34,4 +33,4 @@
 
 </ng-template>
 
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openLogin(content)">openLogin</button>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openLogin(content)" id="openLoginModal">openLogin</button>

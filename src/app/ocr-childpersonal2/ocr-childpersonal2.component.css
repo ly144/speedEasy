@@ -1,26 +1,31 @@
-.tab-pane{
-  margin-left: 400px;
-  margin-top: -190px;
-}
-
-.form-control{
-  width:550px;
-  height: 35px;
-}
-
-hr{
-  width: 800px;
-  margin-left: 3px;
-}
-
-label{
-  margin-left: 35px;
+.modal-dialog{
+  width: 342px;
 }
 
 input{
-  margin-left: 35px;
+  height: 28px;
+  width: 280px;
 }
 
-button{
-  margin-left: 500px;
+label{
+  font-size: 15px;
+}
+
+.modal-body {
+  margin-left: 15px;
+}
+
+.form-group{
+  margin-bottom: 2px;
+}
+
+.btn-outline-info{
+  height: 28px;
+  width: 280px;
+  margin-top: 15px;
+  padding-top: 2px;
+}
+
+.collapse{
+  margin-top: 8px;
 }

@@ -1,5 +1,5 @@
 export class Result {
-  ern: string;
-  companyName: string;
-  fileUrl: string;
+  ern: string; // 企业注册号
+  companyName: string; // 企业名称
+  fileUrl: string; // 文件路径
 }

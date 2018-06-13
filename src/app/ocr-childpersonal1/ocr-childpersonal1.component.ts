@@ -12,4 +12,9 @@ export class OcrChildpersonal1Component implements OnInit {
   ngOnInit() {
   }
 
+  setPersonal() {
+    document.getElementById('childPersonal1').click();
+    document.getElementById('childPersonal2').click();
+  }
+
 }

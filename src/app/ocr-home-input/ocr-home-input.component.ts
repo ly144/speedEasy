@@ -119,13 +119,24 @@ export class OcrHomeInputComponent implements OnInit {
     const selectedArrSize = this.selectedImgSize;
     for (this.selectedImgLength; this.selectedImgLength < this.uploader.queue.length; this.selectedImgLength++) {
       const q = this.uploader.queue[this.selectedImgLength];
-      selectedArrSize.push(q.file.size / 1024);
-      selectedArrName.push(q._file.name);
-      const reader = new FileReader();
-      reader.readAsDataURL(q.some);
-      reader.onload = function () {
-        selectedArr.push(this.result);
-      };
+      const name = q._file.name;
+      const names = name.substring(name.indexOf('.'));
+      console.log(names);
+      if (names === '.zip') {
+        selectedArrSize.push(q.file.size / 1024);
+        selectedArrName.push(q._file.name);
+        selectedArr.push('../../assets/image/ysb.png');
+        this.formData.append('file', q.some);
+        q.remove();
+      } else {
+        selectedArrSize.push(q.file.size / 1024);
+        selectedArrName.push(q._file.name);
+        const reader = new FileReader();
+        reader.readAsDataURL(q.some);
+        reader.onload = function () {
+          selectedArr.push(this.result);
+        };
+      }
     }
     console.log(this.uploader.queue.length);
     this.changeState();

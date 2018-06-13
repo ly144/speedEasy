@@ -12,22 +12,11 @@ import {OcrHomeInputComponent} from './ocr-home-input/ocr-home-input.component';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: OcrHomeInputComponent,
-    children: [
-      { path: '', component: OcrLoginComponent },
-      { path: 'login', component: OcrLoginComponent },
-      { path: 'register', component: OcrRegisterComponent }
-    ]
-  },
+  { path: 'home', component: OcrHomeInputComponent },
   { path: 'ckeditor', component: OcrCkeditorComponent },
   { path: 'login', component: OcrLoginComponent },
   { path: 'register', component: OcrRegisterComponent },
-  { path: 'history', component: OcrHistoryComponent,
-    children: [
-      { path: 'login', component: OcrLoginComponent },
-      { path: 'register', component: OcrRegisterComponent }
-    ]
-  },
+  { path: 'history', component: OcrHistoryComponent },
   { path: 'personal', component: OcrPersonalComponent,
     children: [
       { path: '', component: OcrChildpersonal1Component},

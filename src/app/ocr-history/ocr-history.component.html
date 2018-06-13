@@ -1,16 +1,19 @@
-<!--<div class="History">-->
+<div class="container">
 
 <!--<div class="history" (click)="Onselect()" *ngFor="let a of imgs">-->
 <!--{{ a }}-->
 <!--</div>-->
 
-<!--</div>-->
-
-
-<div class="card">
-  <img class="card-img-top" src="../../assets/image/image.jpg" alt="Card image">
-  <div class="card-body">
-    <p class="card-title">John Doe</p>
-    <p class="card-text">Some example text some example text.</p>
+<div class="row">
+<div class="card col-3" id="card1" (click)="Onselect()" *ngFor="let a of imgs">
+  <img class="card-img-top" src="../../assets/image/image2.jpg" alt="Card image">
+  <div class="card-body" id="card-body1">
+    <h4 class="card-title text-center" id="p1">url</h4>
+    <p class="card-text" id="p2">time</p>
   </div>
 </div>
+</div>
+
+</div>
+
+

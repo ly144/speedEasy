@@ -6,8 +6,8 @@
     <ul class="ocr_daoHang_list">
       <li><a routerLink="/personal" routerLinkActive="active">个人中心</a></li>
       <li><a routerLink="/history" routerLinkActive="active">历史记录</a></li>
-      <li *ngIf="!isLogin"><a routerLink="/home/login" routerLinkActive="active" onclick="document.getElementById('openLoginModal').click();">登录</a></li>
-      <li *ngIf="!isLogin"><a routerLink="/home/register" routerLinkActive="active" onclick="document.getElementById('openRegisterModal').click();">注册</a></li>
+      <li *ngIf="!isLogin"><a onclick="document.getElementById('openLoginModal').click();">登录</a></li>
+      <li *ngIf="!isLogin"><a onclick="document.getElementById('openRegisterModal').click();">注册</a></li>
       <li *ngIf="isLogin"><a>个人中心</a></li>
       <li *ngIf="isLogin"><a>注销</a></li>
     </ul>

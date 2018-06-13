@@ -34,7 +34,7 @@ export class OcrHomeInputComponent implements OnInit {
   content;
 
   uploader: FileUploader = new FileUploader({
-    url: UPLOADURL + '/upload/files',
+    url: UPLOADURL + '/upload/file',
     method: 'POST',
     itemAlias: 'file', // 文件标记/别名
     autoUpload: false, // 是否自动上传
@@ -50,42 +50,36 @@ export class OcrHomeInputComponent implements OnInit {
    * @param {HTMLInputElement} file
    */
   selectedFileOnChanged(file: HTMLInputElement) {
-    /*
-    console.log('选择文件');
-    if (file.value.length === 0) {
-      console.log('未选择文件');
-      return;
-    }
-
-    const files: FileList = file.files;
-    const fileLength = files.length;
-    console.log('添加文件');
-    for (let index = 0; index < fileLength; index++) {
-      const singleFile = files.item(index);
-      // files 这个名字和spring mvc controller参数的名字要对应
-      this.formData.append('files', singleFile);
-    }
-    */
-
     console.log(this.selectedImgLength);
     const selectedArrName = this.selectedImgName;
     const selectedArr = this.selectedImgUrl;
     const selectedArrSize = this.selectedImgSize;
     for (this.selectedImgLength; this.selectedImgLength < this.uploader.queue.length; this.selectedImgLength++) {
       const q = this.uploader.queue[this.selectedImgLength];
-      selectedArrSize.push(q.file.size / 1024);
-      selectedArrName.push(q._file.name);
-      const reader = new FileReader();
-      reader.readAsDataURL(q.some);
-      reader.onload = function () {
-        selectedArr.push(this.result);
-      };
+      const name = q._file.name;
+      const names = name.substring(name.indexOf('.'));
+      console.log(names);
+      if (names === '.zip') {
+        selectedArrSize.push(q.file.size / 1024);
+        selectedArrName.push(q._file.name);
+        selectedArr.push('../../assets/image/ysb.png');
+        this.formData.append('file', q.some);
+        q.remove();
+      } else {
+        selectedArrSize.push(q.file.size / 1024);
+        selectedArrName.push(q._file.name);
+        const reader = new FileReader();
+        reader.readAsDataURL(q.some);
+        reader.onload = function () {
+          selectedArr.push(this.result);
+        };
+      }
     }
     console.log(this.uploader.queue.length);
     this.changeState();
+
   }
   uploadFile() {
-    this.isUpload = true;
     // 上传跨域验证
     this.uploader.queue.forEach(queue => {
       console.log('添加文件');
@@ -102,24 +96,8 @@ export class OcrHomeInputComponent implements OnInit {
         this.formData = new FormData();
         console.log(this.downloadUrl + ( event.body as Response).rspMsg);
         this.downloadUrl = this.downloadUrl + ( event.body as Response).rspMsg;
-
+        this.isUpload = true;
       }
-      /*
-      queue.withCredentials = false;
-      queue.onError = (response: string, status: number, headers: ParsedResponseHeaders) => {
-        console.log(response, status, headers);
-      };
-      queue.onSuccess = (response, status, headers) => {
-        if (status === 200) {
-          const res = JSON.parse(response);
-          console.log('res', res);
-        } else {
-          // console.log("err",response, status, headers);//判断错在哪同样重要
-          console.log('err', Error);
-        }
-      };
-      queue.upload();
-      */
     });
   }
 

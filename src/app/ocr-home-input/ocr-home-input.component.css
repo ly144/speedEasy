@@ -154,6 +154,9 @@
 
 
 
+#ocrInput {
+  margin-bottom: 65px;
+}
 #outer {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -217,4 +220,7 @@
 #template {
   width: 400px;
   height: 500px;
+}
+.downloadA {
+  display: none;
 }

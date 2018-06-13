@@ -4,14 +4,14 @@
       <span class="logo_jianjie">免费、即使的多语种在线图片文字识别</span>
     </a>
     <ul class="ocr_daoHang_list">
-      <li><a routerLink="/ocr-personal" routerLinkActive="active">文件预览</a></li>
+      <li><a routerLink="/personal" routerLinkActive="active">个人中心</a></li>
       <li><a routerLink="/history" routerLinkActive="active">历史记录</a></li>
-      <li class="last"><a class="login-link" onclick="document.getElementById('imgKuang').click();">登录</a></li>
-      <li><a routerLink="/register" routerLinkActive="active">注册</a></li>
+      <li *ngIf="!isLogin"><a routerLink="/home/login" routerLinkActive="active" onclick="document.getElementById('openLoginModal').click();">登录</a></li>
+      <li *ngIf="!isLogin"><a routerLink="/home/register" routerLinkActive="active" onclick="document.getElementById('openRegisterModal').click();">注册</a></li>
+      <li *ngIf="isLogin"><a>个人中心</a></li>
+      <li *ngIf="isLogin"><a>注销</a></li>
     </ul>
   </div>
 </div>
 <router-outlet></router-outlet>
 <app-ocr-footer></app-ocr-footer>
-
-

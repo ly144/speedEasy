@@ -58,13 +58,18 @@ export class OcrInputService {
       );
   }
 
+  /**
+   * 上传图片
+   * @param {FormData} formData
+   * @returns {Observable<HttpEvent<any>>}
+   */
   uploadFiles(formData: FormData) {
     const token = localStorage.getItem('token');
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers
       .set('Cache-Control', 'no-cache')
       .set('Authorization', 'Bearer ' + token);
-    const url = UPLOADURL + '/upload/files';
+    const url = UPLOADURL + '/upload/file';
     const req = new HttpRequest('POST', url, formData, {
       reportProgress: true, headers: headers
     });

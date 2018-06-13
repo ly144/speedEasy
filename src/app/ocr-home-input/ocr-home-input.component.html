@@ -16,37 +16,38 @@
   </div>
 </ng-template>
 
-<div class="ocr_input" xmlns="">
-  <div class="input_original">
-    <div class="ocr_input_bg" ng2FileDrop [ngClass]="{dropping: isDropZoneOver}" (fileOver)="fileOverBase($event)" (onFileDrop)="fileDropOver($event)" [uploader]="uploader">
-      <div id="docUploadCon" class="doc__upload--con">
-        <form id="docUploadForm" method="post" enctype="multipart/form-data">
-          <span>上传文档</span>
-          <!--<input #file ng2FileSelect [uploader]="uploader" type="file" name="file" id="file" multiple class="doc__upload&#45;&#45;file" (change)="selectedFileOnChanged(file)" />-->
-          <!--<input id="file" #file type="file" name="file" multiple (change)="selectedFileOnChanged(file)" />-->
-        </form>
-      </div>
-      <textarea *ngIf="!isImage" id="inputOriginal" class="input_original_area" placeholder="{{ value }}" disabled></textarea>
-      <div *ngIf="isImage" class="input_original_area row">
-        <label *ngFor="let img of selectedImgUrl let i = index" class="mb-2 mr-2">
-          <img src="{{ img }}" class="img-thumbnail img-fluid col-3" (click)="openVerticallyCentered(content, i)" />
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="input_target">
-    <div class="ocr_input_bg">
-      <div id="transTarget" class="input_target_text">{{ txt.ern }}<br />{{ txt.companyName }}</div>
-      <textarea id="transTargetArea" class="input_target_text"></textarea>
-    </div>
-  </div>
-</div>
+<!--<div class="ocr_input" xmlns="">-->
+  <!--<div class="input_original">-->
+    <!--<div class="ocr_input_bg" ng2FileDrop [ngClass]="{dropping: isDropZoneOver}" (fileOver)="fileOverBase($event)" (onFileDrop)="fileDropOver($event)" [uploader]="uploader">-->
+      <!--<div id="docUploadCon" class="doc__upload&#45;&#45;con">-->
+        <!--<form id="docUploadForm" method="post" enctype="multipart/form-data">-->
+          <!--<span>上传文档</span>-->
+          <!--&lt;!&ndash;<input #file ng2FileSelect [uploader]="uploader" type="file" name="file" id="file" multiple class="doc__upload&#45;&#45;file" (change)="selectedFileOnChanged(file)" />&ndash;&gt;-->
+          <!--&lt;!&ndash;<input id="file" #file type="file" name="file" multiple (change)="selectedFileOnChanged(file)" />&ndash;&gt;-->
+        <!--</form>-->
+      <!--</div>-->
+      <!--<textarea *ngIf="!isImage" id="inputOriginal" class="input_original_area" placeholder="{{ value }}" disabled></textarea>-->
+      <!--<div *ngIf="isImage" class="input_original_area row">-->
+        <!--<label *ngFor="let img of selectedImgUrl let i = index" class="mb-2 mr-2">-->
+          <!--<img src="{{ img }}" class="img-thumbnail img-fluid col-3" (click)="openVerticallyCentered(content, i)" />-->
+        <!--</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="input_target">-->
+    <!--<div class="ocr_input_bg">-->
+      <!--<div id="transTarget" class="input_target_text">{{ txt.ern }}<br />{{ txt.companyName }}</div>-->
+      <!--<textarea id="transTargetArea" class="input_target_text"></textarea>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 
 
-<div class="container">
+<div class="container" id="ocrInput">
   <div class="row">
     <div class="col-8 offset-2" id="outer">
+      <form id="ocrUploadForm" method="post" enctype="multipart/form-data">
       <div class="card" id="inside" ng2FileDrop [ngClass]="{dropping: isDropZoneOver}" (fileOver)="fileOverBase($event)" (onFileDrop)="fileDropOver($event)" [uploader]="uploader">
         <div class="card-body text-center" id="inside-hint" *ngIf="!isImage">拖拽文件到这里...<br />支持多文件同时上传</div>
         <div *ngIf="isImage" >
@@ -61,6 +62,7 @@
         </div>
         </div>
       </div>
+      </form>
     </div>
   </div>
   <div class="row">
@@ -68,6 +70,13 @@
     <input #file ng2FileSelect [uploader]="uploader" type="file" name="file" id="file" multiple class="offset-9 btn btn-primary doc_inupt_file" (change)="selectedFileOnChanged(file)" />
     <button class="btn btn-primary" id="ocrButtonup" onclick="document.getElementById('file').click();">上传</button>
     <button class="btn btn-danger" id="ocrButtonre" *ngIf="isImage && !isUpload" (click)="uploadFile()">识别</button>
-    <button class="btn btn-success" id="ocrButtondown" *ngIf="isImage && isUpload">下载</button>
+    <a class="downloadA" id="downloadA" [href]="downloadUrl">下载</a>
+    <button class="btn btn-success" id="ocrButtondown" *ngIf="isImage && isUpload" onclick="document.getElementById('downloadA').click()">下载</button>
   </div>
 </div>
+
+<!--<router-outlet></router-outlet>-->
+<app-ocr-login></app-ocr-login>
+<app-ocr-register></app-ocr-register>
+<app-ocr-childpersonal1></app-ocr-childpersonal1>
+<app-ocr-childpersonal2></app-ocr-childpersonal2>

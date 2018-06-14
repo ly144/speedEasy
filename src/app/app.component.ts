@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { INFO } from './models/info';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,15 @@ export class AppComponent {
 
   user = '';
   isLogin = false;
+
+  logout() {
+    // this.isLogin = false;
+    localStorage.removeItem('token');
+    // localStorage.removeItem('expires_at');
+    // this.loginSubject.next(false);
+    this.user = '';
+    this.isLogin = true;
+  }
 
   constructor() { }
 }

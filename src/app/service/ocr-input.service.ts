@@ -18,7 +18,7 @@ const httpOptions = {
 })
 export class OcrInputService {
 
-  private isLogin = false;
+  isLogin = false;
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -75,6 +75,19 @@ export class OcrInputService {
     });
     console.log('上传');
     return this.http.request(req);
+  }
+
+  getPersonal() {
+    return this.http.get(UPLOADURL + '/user/info');
+  }
+
+  getHistory() {
+    const token = localStorage.getItem('token');
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer ' + token);
+    return this.http.get(UPLOADURL + '/his/excelfile');
   }
 
   public isLoggedIn() {

@@ -1,8 +1,8 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="display: none;" id="openLoginModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" style="display: none;" id="openLoginModal">
   登录
 </button>
 
-<div class="modal fade" id="myModal2">
+<div class="modal fade" id="loginModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -11,8 +11,9 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
+      <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
+
           <div class="form-group">
             <label for="username">用户名</label>
             <input type="text" class="form-control" name="Cname" id="username" [(ngModel)]="model.username" required>
@@ -27,14 +28,14 @@
             <label for="verification">验证码</label>
             <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification">
           </div>
-        </form>
+
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeLoginModal">close</button>
         <button type="submit" class="btn btn-success" [disabled]="!ocrLogin.form.valid">Submit</button>
       </div>
-
+      </form>
     </div>
   </div>
 </div>

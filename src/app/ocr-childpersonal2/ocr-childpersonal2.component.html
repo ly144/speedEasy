@@ -14,48 +14,72 @@
 
       <div class="modal-body">
         <form>
-          <div class="form-group">
-            <label for="name">用户名</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
 
-          <div class="form-group">
-            <label for="position">职业</label>
-            <input type="text" class="form-control" id="position">
-          </div>
+          <div id="accordion">
 
-          <div class="form-group">
-            <label for="city">城市</label>
-            <input type="text" class="form-control" id="city">
-          </div>
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                  基本信息
+                </a>
+              </div>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
 
-          <div class="form-group">
-            <label for="phone">手机</label>
-            <input type="text" class="form-control" id="phone">
-          </div>
+                  <div class="form-group">
+                    <label for="name">用户名</label>
+                    <input type="text" class="form-control" id="name" required>
+                  </div>
 
-          <!--<button type="button" class="btn btn-outline-info">信息</button>-->
-          <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#demo">修改密码</button>
-          <div id="demo" class="collapse">
-            <div class="form-group">
-              <label for="pass">旧密码</label>
-              <input type="password" class="form-control" id="pass">
+                  <div class="form-group">
+                    <label for="position">职业</label>
+                    <input type="text" class="form-control" id="position">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="city">城市</label>
+                    <input type="text" class="form-control" id="city">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">手机</label>
+                    <input type="text" class="form-control" id="phone">
+                  </div>
+
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="newpass">新密码</label>
-              <input type="password" class="form-control" id="newpass">
-            </div>
-            <div class="form-group">
-              <label for="confirm">确认新密码</label>
-              <input type="password" class="form-control" id="confirm">
+
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                  修改密码
+                </a>
+              </div>
+              <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="pass">旧密码</label>
+                    <input type="password" class="form-control" id="pass">
+                  </div>
+                  <div class="form-group">
+                    <label for="newpass">新密码</label>
+                    <input type="password" class="form-control" id="newpass">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirm">确认新密码</label>
+                    <input type="password" class="form-control" id="confirm">
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-
-
         </form>
       </div>
 
       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
         <button type="submit" class="btn btn-success">确认修改</button>
       </div>
 

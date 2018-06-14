@@ -1,3 +1,7 @@
-.light-blue-backdrop {
-  background-color: black;
+/*.light-blue-backdrop {*/
+  /*background-color: black;*/
+/*}*/
+
+.modal-dialog{
+  width: 400px;
 }

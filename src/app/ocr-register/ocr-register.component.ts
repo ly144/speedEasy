@@ -49,7 +49,4 @@ export class OcrRegisterComponent implements OnInit, OnChanges, AfterContentInit
     // document.getElementById('openRegisterModal').click();
   }
 
-  openregister(content) {
-    this.modalService.open(content, {backdropClass: 'light-blue-backdrop', centered: true });
-  }
 }

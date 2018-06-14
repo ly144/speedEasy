@@ -1,10 +1,14 @@
-<ng-template #content let-c="close" let-d="dismiss">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="openRegisterModal" style="display: none;">
+ 注册
+</button>
+
+<div class="modal fade" id="myModal3">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
   <div class="modal-header">
-    <h3>图片文字识别注册</h3>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <h4>图片文字识别注册</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
   </div>
 
   <div class="modal-body">
@@ -35,10 +39,8 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
     <button type="submit" class="btn btn-success" [disabled]="!ocrRegister.form.valid">REGISTER</button>
   </div>
 
-</ng-template>
 
-<button class="btn btn-outline-primary mb-2 mr-2" id="openRegisterModal" (click)="openregister(content)" style="display: none;">openregister</button>

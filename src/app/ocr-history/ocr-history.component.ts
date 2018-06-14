@@ -1,5 +1,13 @@
-import{ Component, OnInit } from '@angular/core';
-// import { LANGUAGES } from '../languages';
+import { Component, OnInit } from '@angular/core';
+import { OcrInputService } from '../service/ocr-input.service';
+import { UPLOADURL } from '../models/uploadUrl';
+
+class History {
+  id: number;
+  cno: string;
+  filePath: string;
+  regcTime: string;
+}
 
 @Component({
   selector: 'app-ocr-history',
@@ -8,15 +16,21 @@ import{ Component, OnInit } from '@angular/core';
 })
 export class OcrHistoryComponent implements OnInit {
 
-  imgs: string[] = ['a', 'b', 'c', 'd'];
+  imgurl = UPLOADURL + '/image/usr';
+  his: History[] = [];
 
-  // imgs = LANGUAGES;
-  constructor() { }
-
-  ngOnInit() {
+  getHistory() {
+    this.ocrInputService.getHistory()
+      .subscribe(data => {
+        console.log(data);
+        this.his = (data as History[]);
+      });
   }
 
-  Onselect(): void {
+  constructor(private ocrInputService: OcrInputService) { }
+
+  ngOnInit() {
+    this.getHistory();
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OcrInputService } from '../service/ocr-input.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-ocr-login',
@@ -9,9 +10,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./ocr-login.component.css'],
 })
 export class OcrLoginComponent {
-
-  title: string;
-  message: string;
 
   model = {'username': '', 'password': ''};
   verification = '';
@@ -23,38 +21,22 @@ export class OcrLoginComponent {
         console.log(res.rspCode);
         console.log(res.rspMsg);
         console.log(res.data);
-        this.setSession(res);
+        localStorage.setItem('token', res.rspMsg);
+        this.appComponent.user = this.model.username;
+        this.appComponent.isLogin = true;
+        // this.ocrInputService.isLogin = true;
+        document.getElementById('closeLoginModal').click();
         this.model.username = '';
         this.model.password = '';
         this.verification = '';
-        // this.router.navigate(['/home']);
         return res as any;
       });
   }
 
-  private setSession(authResult) {
-    console.log(authResult.rspCode);
-    if (authResult.rspCode === '000000') {
-      // const expiresAt = moment().add(authResult.expiresIn, 'second');
-      localStorage.setItem('token', authResult.data);
-      // localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-      // this.isLogin = true;
-      // this.loginSubject.next(true);
-    } else {
-      console.log('else');
-    }
-  }
-
-  logout() {
-    // this.isLogin = false;
-    localStorage.removeItem('token');
-    // localStorage.removeItem('expires_at');
-    // this.loginSubject.next(false);
-  }
-
   constructor(private ocrInputService: OcrInputService,
               private router: Router,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private appComponent: AppComponent) {
   }
 
   openLogin(content) {

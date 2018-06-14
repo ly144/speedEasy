@@ -7,7 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  user = '';
   isLogin = false;
+
+  logout() {
+    // this.isLogin = false;
+    localStorage.removeItem('token');
+    // localStorage.removeItem('expires_at');
+    // this.loginSubject.next(false);
+    this.user = '';
+    this.isLogin = true;
+  }
 
   constructor() { }
 }

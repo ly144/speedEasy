@@ -24,7 +24,8 @@ export class OcrHomeInputComponent implements OnInit {
   onSelectedImgName: string; // 当前选择的文件名称
   onSelectedImgUrl: any; // 当前选择的文件地址
   txt: Result = { ern: '企业注册号', companyName: '企业名称', fileUrl: '文件地址' };
-  value: String = '拖拽文件到此处上传';
+  remind1: String = '拖拽文件到这里...';
+  remind2: String = '支持多文件同时上传';
 
   textwidth = 'col-7';
 
@@ -40,16 +41,10 @@ export class OcrHomeInputComponent implements OnInit {
     autoUpload: false, // 是否自动上传
   });
 
-  changeState() {
-    this.isImage = true;
-    this.textwidth = 'col-6';
-  }
-
   /**
    * 上传选择的文件
-   * @param {HTMLInputElement} file
    */
-  selectedFileOnChanged(file: HTMLInputElement) {
+  selectedFileOnChanged() {
     console.log(this.selectedImgLength);
     const selectedArrName = this.selectedImgName;
     const selectedArr = this.selectedImgUrl;
@@ -63,8 +58,8 @@ export class OcrHomeInputComponent implements OnInit {
         selectedArrSize.push(q.file.size / 1024);
         selectedArrName.push(q._file.name);
         selectedArr.push('../../assets/image/ysb.png');
-        this.formData.append('file', q.some);
-        q.remove();
+        // this.formData.append('file', q.some);
+        // q.remove();
       } else {
         selectedArrSize.push(q.file.size / 1024);
         selectedArrName.push(q._file.name);
@@ -76,8 +71,8 @@ export class OcrHomeInputComponent implements OnInit {
       }
     }
     console.log(this.uploader.queue.length);
-    this.changeState();
-
+    this.isImage = true;
+    this.textwidth = 'col-6';
   }
   uploadFile() {
     // 上传跨域验证
@@ -94,8 +89,13 @@ export class OcrHomeInputComponent implements OnInit {
       } else if (event instanceof HttpResponse) {
         console.log('Files uploaded!');
         this.formData = new FormData();
+        this.selectedImgName = [];
+        this.selectedImgUrl = [];
+        this.selectedImgSize = [];
         console.log(this.downloadUrl + ( event.body as Response).rspMsg);
         this.downloadUrl = this.downloadUrl + ( event.body as Response).rspMsg;
+        this.remind1 = ( event.body as Response).rspMsg;
+        this.remind2 = ' ';
         this.isUpload = true;
       }
     });
@@ -106,41 +106,17 @@ export class OcrHomeInputComponent implements OnInit {
    * @param event
    */
   fileOverBase(event) {
-    this.value = '松开上传';
+    this.remind1 = '松开上传';
+    this.remind2 = '支持多文件同时上传';
   }
   /**
    * 文件拖拽完成的回调函数
    * @param event
    */
   fileDropOver(event) {
-    console.log(this.selectedImgLength);
-    const selectedArrName = this.selectedImgName;
-    const selectedArr = this.selectedImgUrl;
-    const selectedArrSize = this.selectedImgSize;
-    for (this.selectedImgLength; this.selectedImgLength < this.uploader.queue.length; this.selectedImgLength++) {
-      const q = this.uploader.queue[this.selectedImgLength];
-      const name = q._file.name;
-      const names = name.substring(name.indexOf('.'));
-      console.log(names);
-      if (names === '.zip') {
-        selectedArrSize.push(q.file.size / 1024);
-        selectedArrName.push(q._file.name);
-        selectedArr.push('../../assets/image/ysb.png');
-        this.formData.append('file', q.some);
-        q.remove();
-      } else {
-        selectedArrSize.push(q.file.size / 1024);
-        selectedArrName.push(q._file.name);
-        const reader = new FileReader();
-        reader.readAsDataURL(q.some);
-        reader.onload = function () {
-          selectedArr.push(this.result);
-        };
-      }
-    }
-    console.log(this.uploader.queue.length);
-    this.changeState();
-    this.value = '拖拽文件到此处上传';
+    this.selectedFileOnChanged();
+    this.remind1 = '拖拽文件到这里...';
+    this.remind2 = '支持多文件同时上传';
   }
 
   /**
@@ -165,6 +141,15 @@ export class OcrHomeInputComponent implements OnInit {
       this.isImage = false;
       this.textwidth = 'col-7';
     }
+  }
+
+  downExcel() {
+    document.getElementById('downloadA').click();
+    this.remind1 = '拖拽文件到这里...';
+    this.remind2 = '支持多文件同时上传';
+    this.isUpload = false;
+    this.isImage = false;
+    this.textwidth = 'col-7';
   }
 
   constructor(

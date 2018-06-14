@@ -36,10 +36,11 @@ img{
 .edit{
   height: 40px;
   width: 40px;
-  margin-left: 298px;
+  margin-left: 290px;
   margin-top: 220px;
+  background-color: #0188fb;
 }
 
 .edit:hover{
-  color: blue;
+  background-color: #2a9aff;
 }

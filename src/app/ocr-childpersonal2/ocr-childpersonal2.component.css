@@ -4,28 +4,31 @@
 
 input{
   height: 28px;
-  width: 280px;
 }
 
 label{
   font-size: 15px;
 }
 
-.modal-body {
-  margin-left: 15px;
-}
+/*.modal-body {*/
+  /*margin-left: 15px;*/
+/*}*/
 
 .form-group{
   margin-bottom: 2px;
 }
 
-.btn-outline-info{
-  height: 28px;
-  width: 280px;
-  margin-top: 15px;
-  padding-top: 2px;
-}
+/*.btn-outline-info{*/
+  /*height: 28px;*/
+  /*width: 280px;*/
+  /*margin-top: 15px;*/
+  /*padding-top: 2px;*/
+/*}*/
 
 .collapse{
   margin-top: 8px;
+}
+
+.card-body{
+  margin-top: -15px;
 }

@@ -9,9 +9,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
-import { OcrHomeComponent } from './ocr-home/ocr-home.component';
 import { OcrHistoryComponent } from './ocr-history/ocr-history.component';
-import { OcrPersonalComponent } from './ocr-personal/ocr-personal.component';
 import { OcrLoginComponent } from './ocr-login/ocr-login.component';
 import { OcrRegisterComponent } from './ocr-register/ocr-register.component';
 
@@ -28,9 +26,7 @@ import { OcrChildpersonal2Component } from './ocr-childpersonal2/ocr-childperson
 @NgModule({
   declarations: [
     AppComponent,
-    OcrHomeComponent,
     OcrHistoryComponent,
-    OcrPersonalComponent,
     OcrLoginComponent,
     OcrRegisterComponent,
     OcrHomeInputComponent,

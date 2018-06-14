@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OcrInputService } from '../service/ocr-input.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-ocr-login',
@@ -28,6 +29,9 @@ export class OcrLoginComponent {
         this.model.password = '';
         this.verification = '';
         // this.router.navigate(['/home']);
+        this.appComponent.user = this.model.username;
+        this.appComponent.isLogin = true;
+        document.getElementById('closeLoginModal').click();
         return res as any;
       });
   }
@@ -54,7 +58,8 @@ export class OcrLoginComponent {
 
   constructor(private ocrInputService: OcrInputService,
               private router: Router,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private appComponent: AppComponent) {
   }
 
   openLogin(content) {

@@ -6,9 +6,10 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
 
   <div class="modal-body">
-    <form (ngSubmit)="onSubmit()" #ocrLogin="ngForm">
+
       <div class="form-group">
         <label for="username">用户名</label>
         <input type="text" class="form-control" name="Cname" id="username" [(ngModel)]="model.username" required>
@@ -23,14 +24,15 @@
         <label for="verification">验证码</label>
         <input type="text" class="form-control" name="verification" id="verification" [(ngModel)]="verification">
       </div>
-    </form>
+
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="c('Close click')" id="closeLoginModal">Close</button>
     <button type="submit" class="btn btn-success" [disabled]="!ocrLogin.form.valid">Submit</button>
   </div>
 
+  </form>
 </ng-template>
 
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLogin(content)" id="openLoginModal" style="display: none;">openLogin</button>

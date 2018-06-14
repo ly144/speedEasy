@@ -49,7 +49,7 @@
     <div class="col-8 offset-2" id="outer">
       <form id="ocrUploadForm" method="post" enctype="multipart/form-data">
       <div class="card" id="inside" ng2FileDrop [ngClass]="{dropping: isDropZoneOver}" (fileOver)="fileOverBase($event)" (onFileDrop)="fileDropOver($event)" [uploader]="uploader">
-        <div class="card-body text-center" id="inside-hint" *ngIf="!isImage">拖拽文件到这里...<br />支持多文件同时上传</div>
+        <div class="card-body text-center" id="inside-hint" *ngIf="!isImage">{{ remind1 }}<br>{{ remind2 }}</div>
         <div *ngIf="isImage" >
         <div class="card-body" *ngFor="let img of selectedImgUrl let i = index" id="imgShow">
           <button type="button" class="close" (click)="imgClose(i)" ><span aria-hidden="true">&times;</span></button>
@@ -67,11 +67,11 @@
   </div>
   <div class="row">
     <input type="text" class="offset-2 {{ textwidth }} form-control" placeholder="输入地址" >
-    <input #file ng2FileSelect [uploader]="uploader" type="file" name="file" id="file" multiple class="offset-9 btn btn-primary doc_inupt_file" (change)="selectedFileOnChanged(file)" />
+    <input #file ng2FileSelect [uploader]="uploader" type="file" name="file" id="file" multiple class="offset-9 btn btn-primary doc_inupt_file" (change)="selectedFileOnChanged()" />
     <button class="btn btn-primary" id="ocrButtonup" onclick="document.getElementById('file').click();">上传</button>
     <button class="btn btn-danger" id="ocrButtonre" *ngIf="isImage && !isUpload" (click)="uploadFile()">识别</button>
     <a class="downloadA" id="downloadA" [href]="downloadUrl">下载</a>
-    <button class="btn btn-success" id="ocrButtondown" *ngIf="isImage && isUpload" onclick="document.getElementById('downloadA').click()">下载</button>
+    <button class="btn btn-success" id="ocrButtondown" *ngIf="isImage && isUpload" (click)="downExcel()">下载</button>
   </div>
 </div>
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { INFO } from './models/info';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  user = '';
   isLogin = false;
 
   constructor() { }
